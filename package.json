@@ -5,7 +5,7 @@
   "main": ".",
   "type": "module",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "npx tsc && node ./dist/server.js",
     "lint": "eslint ./src/**/* ./dist/**/* --fix",
     "build-and-lint": "npx tsc && npm run lint",
     "jasmine": "jasmine",

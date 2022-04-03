@@ -1,0 +1,50 @@
+<%- include('../partials/head.ejs') %>
+<title>new student</title>
+</head>
+<body class="text-light" style="min-width: 100%; min-height: 100%; background: linear-gradient(356deg, rgba(24,163,124,1) 0%, rgba(9,91,104,1) 47%, rgba(0,27,39,1) 100%);" >
+    <div class="container">
+        <h1 class="text-center m-4">Add New Student Form</h1>
+        <form class="row g-4 d-flex justify-content-center align-items-center mt-3" action="/students/new" method="post">
+            <div class="col-md-7">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="i.e Ahmed Mohammed Ahmed" required>
+            </div>
+            <div class="col-md-7">
+            <label for="Department" class="form-label">Department</label>
+            <input type="text" class="form-control" id="Department" name="department" placeholder="i.e Accounting" required>
+            </div>
+            <div class="col-md-7">
+            <label for="Year" class="form-label">Year</label>
+            <input type="number" class="form-control" max="5" id="Year" name="year" required>
+            </div>
+            <div class="col-md-7">
+                <label for="Faculty" class="form-label">Faculty</label>
+                <select id="Faculty" class="form-select" name="faculty" required>
+                    <option value="unknown" selected>--</option>
+                    <option value="Commerce and Business Administration">Commerce and Business Administration</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Law">Law</option>
+                </select>
+            </div>
+            <div class="col-md-7">
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="isFessPaid" id="FessPaid" value="1">
+                    <label class="form-check-label" for="FessPaid" >
+                    Paid The Fees
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="isFessPaid" id="FessNotPaid" value="0">
+                    <label class="form-check-label" for="FessNotPaid">
+                    Didn't Pay The Fees
+                    </label>
+                </div>
+            </div>
+        <div class="d-flex justify-content-center mt-4 row">
+            <button type="submit" class="btn btn-dark bg-gradient col-md-7 m-2 p-2">Submit</button>
+            <button type="reset" class="btn btn-outline-dark bg-gradient col-md-7 m-2 mb-3 p-2">Reset</button>
+        </div>
+        </form>
+    </div>
+<%- include('../partials/end.ejs') %>

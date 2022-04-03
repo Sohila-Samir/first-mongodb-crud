@@ -1,0 +1,24 @@
+<%- include('../views/partials/head.ejs') %>
+<title>home</title>
+</head>
+<body class="text-light text-capitalize" style="height: 100%; width: 100%; background: linear-gradient(356deg, rgba(24,163,124,1) 0%, rgba(9,91,104,1) 47%, rgba(0,27,39,1) 100%);">
+    <div class="container">
+        <h1 class="text-center m-5">Hey There</h1>
+        <div class="card col-md-7 text-light shadow" style="margin: 0 auto; background-color: rgba(0, 0, 0, 0.258); border: 3px solid rgb(168, 191, 224);">
+            <div class="card-body">
+            <h5 class="card-title" style="color: rgb(168, 191, 224);";>about</h5>
+            <p class="card-text">
+                this is a basic <b>CRUD</b> application using express, node.js, ejs, bootstrap, mongodb and mongoose. you can simply add a new student,
+                edit an existing student, get a student or get all the students in the database and delete a student.
+                <br>
+                <br>
+                you can start checking the app by getting all of the students from the button down there.
+                <br>
+                <br>
+                wish you a great day!
+            </p>
+            <a href="http://localhost:8624/students" class="btn btn-outline-light bg-gradient">Get All Students</a>
+            </div>
+        </div>
+    </div>
+<%- include('../views/partials/end.ejs') %>

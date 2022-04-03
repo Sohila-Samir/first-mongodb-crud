@@ -1,0 +1,19 @@
+<%- include('../partials/head.ejs') %>
+<title>student <%= neededValues['name'] %> </title>
+</head>
+<body class="text-light text-capitalize" style="height: 100%; width: 100%; background: linear-gradient(356deg, rgba(24,163,124,1) 0%, rgba(9,91,104,1) 47%, rgba(0,27,39,1) 100%);">
+    <div class="container">
+    <h1 class="text-center m-5">Details</h1>
+    <div class="mt-5 p-4 rounded border border-2 border-light col-md-6" style="margin: 0 auto; background-color: rgba(0, 0, 0, 0.223);">
+        <% for (const value in neededValues) { %>
+            <p class="p-1"><span class="fs-6 fw-bold"><%= value %>: </span> <%= neededValues[value] %></p>
+        <% } %>
+    </div>
+    <div class="d-flex justify-content-center row p-2 g-2 mt-5">
+        <a href="/students/<%= neededValues['id'] %>/update" class="btn btn-dark bg-gradient col-md-6 p-2">Edit</a>
+        <form action="/students/<%= neededValues['id'] %>/delete?_method=DELETE" method="POST" class="d-flex justify-content-center align-items-center row mt-3 p-0">
+            <button type="submit" class="btn btn-danger bg-gradient row col-md-6">Delete</button>
+        </form>
+    </div>
+    </div>
+<%- include('../partials/end.ejs') %>

@@ -1,0 +1,56 @@
+<%- include('../partials/head.ejs') %>
+<title>Edit Student</title>
+</head>
+<body class="text-light text-capitalize" style="min-height: 100%; min-width: 100%; background: linear-gradient(356deg, rgba(24,163,124,1) 0%, rgba(9,91,104,1) 47%, rgba(0,27,39,1) 100%);" >
+    <h1 class="text-center m-4">Edit Form</h1>
+    <div class="container">
+    <form class="row g-4 d-flex justify-content-center align-items-center mt-3" action="/students/<%= id %>/update?_method=PUT" method="post">
+        <div class="col-md-7">
+            <label for="name" class="form-label">name</label>
+            <input type="text" class="form-control" id="name" name="lname" value="<%= foundStudent.name %>" placeholder="i.e Ahmed Mohammed Ahmed" required>
+        </div>
+        <div class="col-md-7">
+            <label for="department" class="form-label">department</label>
+            <input type="text" class="form-control" id="department" name="department" value="<%= foundStudent.department%>" placeholder="i.e Accounting" required>
+        </div>
+        <div class="col-md-7">
+            <label for="year" class="form-label">year</label>
+            <input type="number" class="form-control" id="year" name="year" max="5" value="<%= foundStudent.year %>" required>
+        </div>
+        <div class="col-md-7">
+            <label for="faculty" class="form-label">faculty</label>
+            <select class="form-select" name="faculty" id="faculty" required>
+                <option value="unknown" selected>--</option>
+                <option value="Commerce and Business Administration">Commerce and Business Administration</option>
+                <option value="Arts">Arts</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Law">Law</option>
+            </select>
+        </div>
+        <div class="col-md-7">
+            <% if (foundStudent.isFessPaid) { %>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" id="radio" name="isFessPaid" value="1" checked>
+                    <label class="form-check-label for="radio"> Paid The Fees</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" id="radio" name="isFessPaid" value="0">
+                    <label class="form-check-label for="radio"> Didn't Pay The Fees</label>
+                </div>
+            <% } else { %>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" id="radio" name="isFessPaid" value="1">
+                    <label class="form-check-label for="radio"> Paid The Fees</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" id="radio" name="isFessPaid" value="0" checked>
+                    <label class="form-check-label for="radio"> Didn't Pay The Fees</label>
+                </div>
+            <% } %>
+        </div>
+        <div class="row m-3 d-flex justify-content-center align-items-center">
+            <button class="btn btn-dark bg-gradient col-md-7 p-2" type="submit">Submit</button>
+        </div>
+    </form>
+    </div>
+<%- include('../partials/end.ejs') %>

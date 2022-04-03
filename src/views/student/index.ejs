@@ -1,0 +1,34 @@
+<%- include('../partials/head.ejs') %>
+<title>students</title>
+</head>
+<body style="min-height: 100%; min-width: 100%; background: linear-gradient(356deg, rgba(24,163,124,1) 0%, rgba(9,91,104,1) 47%, rgba(0,27,39,1) 100%);">
+    <h1 class="text-center pt-5 text-light">All Students</h1>
+    <div class="container mt-4">
+        <% if (!allStudents.length) { %>
+            <div class="card col-md-7 text-light shadow" style="margin: 3em auto; background-color: rgba(0, 0, 0, 0.266); border: 3px solid rgb(168, 191, 224);">
+                <div class="card-body">
+                <h5 class="card-title">Oops!</h5>
+                <p class="card-text">
+                    sorry for the inconvenience but looks like there is no students for now to show,
+                    you can add a new one from the button down there :).
+                </p>
+                <a href="/students/new" class="btn btn-outline-light bg-gradient">add new student</a>
+                </div>
+            </div>
+        <% } else { %>
+            <% for (const student of allStudents) { %>
+                <div class="row mt-4 mb-4 ms-1 me-1 d-flex justify-content-center align-item-center">
+                    <div class="card border border-light border-2 col-md-7 shadow" style="border-radius: 1em; background-color: rgba(0, 0, 0, 0.134);">
+                        <div class="card-body text-light text-capitalize">
+                        <h5 class="card-title"><%= student.name %></h5>
+                        <a href="/students/<%= student._id %>" class="btn btn-secondary bg-gradient">Details</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <div class="row d-flex justify-content-center align-item-center m-3">
+                <a href="/students/new" class="link-light btn btn-dark bg-gradient mt-3 mb-3 p-2 col-md-7" style="text-decoration: none;">Add New Student</a>
+            </div>
+        <% } %>
+    </div>
+<%- include('../partials/end.ejs') %>
